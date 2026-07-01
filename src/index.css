@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Nunito', 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom 3D button styles for kids */
+.btn-3d-indigo {
+  position: relative;
+  transition: all 0.1s ease;
+  box-shadow: 0 6px 0 #3730a3;
+}
+.btn-3d-indigo:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #3730a3;
+}
+
+.btn-3d-emerald {
+  position: relative;
+  transition: all 0.1s ease;
+  box-shadow: 0 6px 0 #065f46;
+}
+.btn-3d-emerald:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #065f46;
+}
+
+.btn-3d-rose {
+  position: relative;
+  transition: all 0.1s ease;
+  box-shadow: 0 6px 0 #9f1239;
+}
+.btn-3d-rose:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #9f1239;
+}
+
+.btn-3d-amber {
+  position: relative;
+  transition: all 0.1s ease;
+  box-shadow: 0 6px 0 #92400e;
+}
+.btn-3d-amber:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #92400e;
+}
+
+/* Custom animations for character expressions */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake 0.3s ease-in-out infinite;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}

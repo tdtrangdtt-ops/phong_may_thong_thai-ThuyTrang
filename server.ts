@@ -87,25 +87,27 @@ function generateDocxCertificate(studentName: string, score: string) {
         children: [
           new Paragraph({
             alignment: AlignmentType.CENTER,
-            spacing: { before: 400, after: 200 },
+            spacing: { before: 800, after: 200 },
             children: [
               new TextRun({
                 text: "🏆 CHỨNG NHẬN DANH DỰ 🏆",
                 bold: true,
                 size: 32,
                 color: "1e1b4b",
+                font: "Arial"
               }),
             ],
           }),
           new Paragraph({
             alignment: AlignmentType.CENTER,
-            spacing: { before: 200, after: 400 },
+            spacing: { before: 200, after: 500 },
             children: [
               new TextRun({
                 text: "HIỆP SĨ TIN HỌC TÍ HON",
                 bold: true,
                 size: 40,
                 color: "4f46e5",
+                font: "Arial"
               }),
             ],
           }),
@@ -114,9 +116,10 @@ function generateDocxCertificate(studentName: string, score: string) {
             spacing: { before: 200, after: 200 },
             children: [
               new TextRun({
-                text: "Chứng nhận này được trao tặng cho bạn nhỏ:",
-                size: 24,
+                text: "Chứng nhận này tự hào được trao tặng cho bạn nhỏ:",
+                size: 20,
                 italics: true,
+                font: "Arial"
               }),
             ],
           }),
@@ -129,38 +132,42 @@ function generateDocxCertificate(studentName: string, score: string) {
                 bold: true,
                 size: 36,
                 color: "b91c1c",
+                font: "Arial"
               }),
             ],
           }),
           new Paragraph({
             alignment: AlignmentType.CENTER,
-            spacing: { before: 200, after: 400 },
+            spacing: { before: 200, after: 600 },
             children: [
               new TextRun({
-                text: `Đã hoàn thành xuất sắc thử thách đố vui với số điểm ấn tượng: ${score} câu trả lời đúng, và thực hành thành thạo quy trình 5 bước vận hành máy tính an toàn.`,
-                size: 22,
+                text: `Đã xuất sắc hoàn thành cuộc thi đố vui phòng máy thông thái đạt điểm số tối đa: ${score} câu trả lời đúng và thực hành thành thạo 5 bước vận hành máy tính an toàn, bảo vệ tài sản trường học.`,
+                size: 18,
+                font: "Arial"
               }),
             ],
           }),
           new Paragraph({
-            alignment: AlignmentType.CENTER,
-            spacing: { before: 400, after: 100 },
+            alignment: AlignmentType.RIGHT,
+            spacing: { before: 600, after: 100 },
             children: [
               new TextRun({
-                text: "Người Duyệt Ký",
+                text: "Người Duyệt Ký          ",
+                bold: true,
+                size: 16,
+                font: "Arial"
+              }),
+            ],
+          }),
+          new Paragraph({
+            alignment: AlignmentType.RIGHT,
+            children: [
+              new TextRun({
+                text: "Chú Chuột Thông Thái 🐭   ",
                 bold: true,
                 size: 20,
-              }),
-            ],
-          }),
-          new Paragraph({
-            alignment: AlignmentType.CENTER,
-            children: [
-              new TextRun({
-                text: "Chú Chuột Thông Thái 🐭",
-                bold: true,
-                size: 24,
                 color: "4f46e5",
+                font: "Arial"
               }),
             ],
           }),
@@ -178,6 +185,10 @@ function generatePptxLesson() {
   // Slide 1: Welcome Slide
   const slide1 = pptx.addSlide();
   slide1.background = { fill: "f5f3ff" };
+  
+  // Top border bar using empty text block with fill
+  slide1.addText("", { x: 0, y: 0, w: 10, h: 0.4, fill: { color: "4f46e5" } });
+  
   slide1.addText("BÀI GIẢNG PHÒNG MÁY THÔNG THÁI", {
     x: 0.5,
     y: 1.5,
@@ -187,6 +198,7 @@ function generatePptxLesson() {
     bold: true,
     color: "1e1b4b",
     align: "center",
+    fontFace: "Arial"
   });
   slide1.addText("Dành cho các bạn nhỏ Lớp 1 & Lớp 2 học cách sử dụng máy tính an toàn", {
     x: 0.5,
@@ -196,6 +208,7 @@ function generatePptxLesson() {
     fontSize: 18,
     color: "4f46e5",
     align: "center",
+    fontFace: "Arial"
   });
   slide1.addText("Giáo viên hướng dẫn • Trợ lý Chú Chuột 🐭", {
     x: 0.5,
@@ -205,20 +218,26 @@ function generatePptxLesson() {
     fontSize: 14,
     color: "6b7280",
     align: "center",
+    fontFace: "Arial"
   });
 
   // Slide 2: 6 Hardware Components
   const slide2 = pptx.addSlide();
   slide2.background = { fill: "ffffff" };
+  
+  // Header bar
+  slide2.addText("", { x: 0, y: 0, w: 10, h: 0.8, fill: { color: "4f46e5" } });
   slide2.addText("1. CÁC LINH KIỆN MÁY TÍNH QUEN THUỘC", {
     x: 0.5,
-    y: 0.5,
+    y: 0.1,
     w: 9.0,
-    h: 0.8,
+    h: 0.6,
     fontSize: 22,
     bold: true,
-    color: "4f46e5",
+    color: "ffffff",
+    fontFace: "Arial"
   });
+  
   slide2.addText("🖥️ Màn hình (Monitor): Hiển thị hình ảnh và trò chơi màu sắc.\n💻 Thân máy (CPU): Bộ não thông thái xử lý mọi dữ liệu.\n⌨️ Bàn phím (Keyboard): Để gõ các chữ cái và chữ số.\n🖱️ Chuột (Mouse): Di chuyển mũi tên nhỏ tinh nghịch.\n🔊 Loa (Speakers): Phát âm thanh bài giảng và tiếng nói của Chú Chuột.\n🔌 Ổ điện (Power): Nguồn điện cung cấp thức ăn năng lượng cho máy.", {
     x: 0.8,
     y: 1.5,
@@ -227,20 +246,26 @@ function generatePptxLesson() {
     fontSize: 15,
     color: "374151",
     lineSpacing: 22,
+    fontFace: "Arial"
   });
 
   // Slide 3: 5 Steps to Turn On & Off Safely
   const slide3 = pptx.addSlide();
   slide3.background = { fill: "ecfdf5" };
+  
+  // Header bar
+  slide3.addText("", { x: 0, y: 0, w: 10, h: 0.8, fill: { color: "047857" } });
   slide3.addText("2. QUY TRÌNH 5 BƯỚC VẬN HÀNH AN TOÀN", {
     x: 0.5,
-    y: 0.5,
+    y: 0.1,
     w: 9.0,
-    h: 0.8,
+    h: 0.6,
     fontSize: 22,
     bold: true,
-    color: "047857",
+    color: "ffffff",
+    fontFace: "Arial"
   });
+  
   slide3.addText("Bước 1: Nhờ người lớn cắm phích điện ảo vào ổ cắm 🔌\nBước 2: Bấm nút Nguồn trên Thân máy (CPU) 💻\nBước 3: Bấm nút Nguồn trên Màn hình 🖥️\nBước 4: Nhấp nút Đăng Nhập để vào lớp học 👤\nBước 5: Học xong, tắt máy an toàn qua Start -> Shut down 🔴", {
     x: 0.8,
     y: 1.5,
@@ -250,20 +275,26 @@ function generatePptxLesson() {
     bold: true,
     color: "065f46",
     lineSpacing: 26,
+    fontFace: "Arial"
   });
 
   // Slide 4: Electrical Safety Warn
   const slide4 = pptx.addSlide();
   slide4.background = { fill: "fff7ed" };
+  
+  // Header bar
+  slide4.addText("", { x: 0, y: 0, w: 10, h: 0.8, fill: { color: "c2410c" } });
   slide4.addText("3. QUY TẮC AN TOÀN ĐIỆN QUAN TRỌNG!", {
     x: 0.5,
-    y: 0.5,
+    y: 0.1,
     w: 9.0,
-    h: 0.8,
+    h: 0.6,
     fontSize: 22,
     bold: true,
-    color: "c2410c",
+    color: "ffffff",
+    fontFace: "Arial"
   });
+  
   slide4.addText("❌ TUYỆT ĐỐI KHÔNG chạm vào ổ điện hoặc phích cắm khi tay đang ướt nước! 💧\n❌ TUYỆT ĐỐI KHÔNG giật dây điện hoặc rút phích đột ngột khi máy tính đang chạy!\n❌ TUYỆT ĐỐI KHÔNG tự sửa dây điện bị hở. Báo thầy cô ngay khi thấy khói khét!\n✔️ Hãy luôn giữ tay khô ráo và làm việc dưới sự hướng dẫn của thầy cô, bố mẹ.", {
     x: 0.8,
     y: 1.5,
@@ -272,6 +303,7 @@ function generatePptxLesson() {
     fontSize: 15,
     color: "7c2d12",
     lineSpacing: 22,
+    fontFace: "Arial"
   });
 
   return pptx;
@@ -311,19 +343,71 @@ app.get("/api/export/pptx", async (req, res) => {
   }
 });
 
+// Route to generate TTS using Edge TTS (supports regional Vietnamese voices)
+app.get("/api/tts", async (req, res): Promise<any> => {
+  try {
+    const text = String(req.query.text || "");
+    const voice = String(req.query.voice || "vi-VN-HoaiMyNeural");
+    
+    if (!text.trim()) {
+      res.status(400).json({ error: "Text parameter is required" });
+      return;
+    }
+
+    // Convert numerical rate (e.g. 0.9) to Edge TTS format (e.g. -10%)
+    let rateStr = "+0%";
+    if (req.query.rate) {
+      const rateNum = parseFloat(String(req.query.rate));
+      if (!isNaN(rateNum)) {
+        const percent = Math.round((rateNum - 1.0) * 100);
+        rateStr = percent >= 0 ? `+${percent}%` : `${percent}%`;
+      }
+    }
+
+    // Convert numerical pitch (e.g. 1.2) to Edge TTS format (e.g. +10Hz)
+    let pitchStr = "+0Hz";
+    if (req.query.pitch) {
+      const pitchNum = parseFloat(String(req.query.pitch));
+      if (!isNaN(pitchNum)) {
+        const hzVal = Math.round((pitchNum - 1.0) * 50);
+        pitchStr = hzVal >= 0 ? `+${hzVal}Hz` : `${hzVal}Hz`;
+      }
+    }
+
+    const { EdgeTTS } = await import("edge-tts-universal");
+    const tts = new EdgeTTS(text, voice, {
+      rate: rateStr,
+      pitch: pitchStr,
+      volume: "+0%",
+    });
+    
+    const result = await tts.synthesize();
+    const arrayBuffer = await result.audio.arrayBuffer();
+    const audioBuffer = Buffer.from(arrayBuffer);
+
+    res.setHeader("Content-Type", "audio/mpeg");
+    res.setHeader("Content-Length", audioBuffer.length);
+    res.send(audioBuffer);
+    return;
+  } catch (err: any) {
+    console.error("Lỗi sinh TTS:", err);
+    res.status(500).json({ error: "Không thể tạo giọng nói", message: err.message });
+    return;
+  }
+});
+
 // Endpoint to chat with the Gemini AI "Chú Chuột Thông Thái"
 app.post("/api/chat", async (req, res) => {
   try {
     const { message, history } = req.body;
     const clientApiKey = req.headers["x-gemini-api-key"];
-    const requestedModel = req.headers["x-gemini-model"] || "gemini-2.5-flash";
+    const requestedModel = req.headers["x-gemini-model"] || "gemini-3-flash-preview";
 
     // Setup fallback chain
     const fallbackList = [
-      "gemini-2.5-flash",
-      "gemini-1.5-flash",
-      "gemini-1.5-pro",
-      "gemini-2.5-pro"
+      "gemini-3-flash-preview",
+      "gemini-3-pro-preview",
+      "gemini-2.5-flash"
     ];
 
     // Remove duplicates and put requested model at the front
